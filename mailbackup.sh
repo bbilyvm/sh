@@ -1,0 +1,3 @@
+rm -rf /root/backups/* /root/temp/* && tar -zcPf /root/temp/mail-$(date +%Y%m%d-%H%M).tar.gz /mailbox/mail && mysqldump -u root -p password mailbox > /root/temp/mail-$(date +%Y%m%d-%H%M).sql && tar -zcPf /root/backups/mailbox-$(date +%Y%m%d-%H%M).tar.gz /root/temp && rclone copy /root/backups/ gd:/MailBackup --transfers 4 -P > /dev/null
+
+#rm -rf /root/backups/* /root/temp/* && tar -zcPf /root/temp/mail-$(date +%Y%m%d-%H%M).tar.gz /mailbox && mysqldump -u root -p password mailbox > /root/temp/mail-$(date +%Y%m%d-%H%M).sql && tar -zcPf /root/backups/mailbox-$(date +%Y%m%d-%H%M).tar.gz /root/temp && rclone copy /root/backups/ gd:/MailBackup --transfers 4 -P > /dev/null
