@@ -31,15 +31,15 @@ update_app() {
             stop_app "$dir/alist"
         done
 
-        wget "https://github.com/alist-org/alist/releases/download/$latest_version/alist-linux-arm64.tar.gz"
-        tar zxf alist-linux-arm64.tar.gz
+        wget "https://github.com/alist-org/alist/releases/download/$latest_version/alist-linux-amd64.tar.gz"
+        tar zxf alist-linux-amd64.tar.gz
         chmod +x alist
 
         for dir in "${app_dirs[@]}"; do
             cp alist "$dir"
         done
 
-        rm alist alist-linux-arm64.tar.gz
+        rm alist alist-linux-amd64.tar.gz
 
         for dir in "${app_dirs[@]}"; do
             start_app "$dir/alist"
