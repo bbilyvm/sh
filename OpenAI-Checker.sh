@@ -14,23 +14,17 @@ check_vpn() {
 
     # 检查页面内容是否包含关键字
     if echo "$response" | grep -q "$keyword"; then
-        echo -e "%-20s:\tNo" "${type}_ChatGPT"
+        echo -e "${type}_ChatGPT: No"
     else
-        echo -e "%-20s:\tYes" "${type}_ChatGPT"
+        echo -e "${type}_ChatGPT: Yes"
     fi
 }
 
-# 清空输出文件
-> output.log
-
 # 检查 Web ChatGPT
-check_vpn "https://chat.openai.com/" "VPN" "Web" >> output.log
+check_vpn "https://chat.openai.com/" "VPN" "Web"
 
 # 检查 iOS ChatGPT
-check_vpn "https://ios.chat.openai.com/" "VPN" "iOS" >> output.log
+check_vpn "https://ios.chat.openai.com/" "VPN" "iOS"
 
 # 检查 Android ChatGPT
-check_vpn "https://android.chat.openai.com/" "VPN" "Android" >> output.log
-
-# 显示输出文件内容
-cat output.log
+check_vpn "https://android.chat.openai.com/" "VPN" "Android"
