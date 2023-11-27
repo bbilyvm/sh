@@ -1,9 +1,5 @@
 #!/bin/bash
 
-Font_Green="\033[32m"
-Font_Red="\033[31m"
-Font_Suffix="\033[0m"
-
 check_vpn() {
     url=$1
     keyword=$2
@@ -14,9 +10,9 @@ check_vpn() {
 
     # 检查页面内容是否包含关键字
     if echo "$response" | grep -q "$keyword"; then
-        echo -e "${type}_ChatGPT: No"
+        echo "${type}_ChatGPT: No"
     else
-        echo -e "${type}_ChatGPT: Yes"
+        echo "${type}_ChatGPT: Yes"
     fi
 }
 
