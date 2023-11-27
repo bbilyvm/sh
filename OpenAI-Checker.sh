@@ -17,14 +17,11 @@ check_vpn() {
 
     # 检查页面内容是否包含关键字
     if echo "$response" | grep -q "$keyword"; then
-        echo -e "\r %-20s:\tNo" "${type}_ChatGPT" >> output.log
+        printf "\r %-20s:\t${Font_Red}No${Font_Suffix}\n" "${type}_ChatGPT"
     else
-        echo -e "\r %-20s:\tYes" "${type}_ChatGPT" >> output.log
+        printf "\r %-20s:\t${Font_Green}Yes${Font_Suffix}\n" "${type}_ChatGPT"
     fi
 }
-
-# 清空输出文件
-> output.log
 
 # 检查 Web ChatGPT
 check_vpn "https://chat.openai.com/" "VPN" "Web"
@@ -34,6 +31,3 @@ check_vpn "https://ios.chat.openai.com/" "VPN" "iOS"
 
 # 检查 Android ChatGPT
 check_vpn "https://android.chat.openai.com/" "VPN" "Android"
-
-# 在终端中显示带颜色的输出
-cat output.log | sed -e "s/No/${Font_Red}No${Font_Suffix}/" -e "s/Yes/${Font_Green}Yes${Font_Suffix}/"
