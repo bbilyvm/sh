@@ -1,7 +1,5 @@
 #!/bin/bash
 
-IFS=""
-
 Font_Green="\033[32m"
 Font_Red="\033[31m"
 Font_Suffix="\033[0m"
@@ -16,9 +14,9 @@ check_vpn() {
 
     # 检查页面内容是否包含关键字
     if echo "$response" | grep -q "$keyword"; then
-        printf "\r %-20s:\t${Font_Red}No${Font_Suffix}\n" "${type}_ChatGPT"
+        echo -e "\r %-20s:\t${Font_Red}No${Font_Suffix}\n" "${type}_ChatGPT"
     else
-        printf "\r %-20s:\t${Font_Green}Yes${Font_Suffix}\n" "${type}_ChatGPT"
+        echo -e "\r %-20s:\t${Font_Green}Yes${Font_Suffix}\n" "${type}_ChatGPT"
     fi
 }
 
