@@ -1,5 +1,7 @@
 #!/bin/bash
 
+IFS=""
+
 Font_Green="\033[32m"
 Font_Red="\033[31m"
 Font_Suffix="\033[0m"
