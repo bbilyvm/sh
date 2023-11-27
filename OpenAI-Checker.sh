@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 设置终端为非缓冲模式
-export TERM=ansi
-
 Font_Green="\033[32m"
 Font_Red="\033[31m"
 Font_Suffix="\033[0m"
@@ -17,17 +14,23 @@ check_vpn() {
 
     # 检查页面内容是否包含关键字
     if echo "$response" | grep -q "$keyword"; then
-        printf "\r %-20s:\t${Font_Red}No${Font_Suffix}\n" "${type}_ChatGPT"
+        echo -e "%-20s:\tNo" "${type}_ChatGPT"
     else
-        printf "\r %-20s:\t${Font_Green}Yes${Font_Suffix}\n" "${type}_ChatGPT"
+        echo -e "%-20s:\tYes" "${type}_ChatGPT"
     fi
 }
 
+# 清空输出文件
+> output.log
+
 # 检查 Web ChatGPT
-check_vpn "https://chat.openai.com/" "VPN" "Web"
+check_vpn "https://chat.openai.com/" "VPN" "Web" >> output.log
 
 # 检查 iOS ChatGPT
-check_vpn "https://ios.chat.openai.com/" "VPN" "iOS"
+check_vpn "https://ios.chat.openai.com/" "VPN" "iOS" >> output.log
 
 # 检查 Android ChatGPT
-check_vpn "https://android.chat.openai.com/" "VPN" "Android"
+check_vpn "https://android.chat.openai.com/" "VPN" "Android" >> output.log
+
+# 显示输出文件内容
+cat output.log
