@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 设置终端为非缓冲模式
+export TERM=ansi
+
 Font_Green="\033[32m"
 Font_Red="\033[31m"
 Font_Suffix="\033[0m"
