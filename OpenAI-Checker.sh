@@ -20,11 +20,11 @@ check_vpn() {
     fi
 }
 
+# 检查 Web ChatGPT
+check_vpn "https://chat.openai.com/" "VPN" "Web"
+
 # 检查 iOS ChatGPT
 check_vpn "https://ios.chat.openai.com/" "VPN" "iOS"
 
 # 检查 Android ChatGPT
 check_vpn "https://android.chat.openai.com/" "VPN" "Android"
-
-# 检查 Web ChatGPT
-check_vpn "https://chat.openai.com/" "VPN" "Web"
